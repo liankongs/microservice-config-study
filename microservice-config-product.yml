@@ -1,71 +1,71 @@
-＃注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
-春天：
-  简介：
-    active：开发人员＃激活开发环境配置
+#注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
+spring:
+  profiles:
+    active: dev # 激活开发环境配置
 ---
-服务器：
-  港口：8001
-mybatis：
-  config-location：classpath：mybatis / mybatis.cfg.xml
-  类型别名包：com.mengxuegu.springcloud.entities
-  映射器位置：classpath：mybatis / mapper / ** / *。xml
-春天：
-  个人资料：开发人员＃开发环境
-  应用范围：
-    名称：microservice-product-config			 ＃ ******服务名*******
-  资料来源：
-    类型：com.alibaba.druid.pool.DruidDataSource
-    驱动程序类名：com.mysql.cj.jdbc.Driver
-    网址：jdbc：mysql：//192.168.10.11：33306 / springcloud_db01？serverTimezone = GMT％2B8 ＃数据库连接地址，*****注意库名db01 ***************
-    用户名：root
-    密码：123456
-    dbcp2：
-      最小闲置时间：5
-      初始尺寸：5
-      最大合计：5
-      最大等待毫秒数：150
+server:
+  port: 8001
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml 
+  type-aliases-package: com.mengxuegu.springcloud.entities
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+spring:
+  profiles: dev # 开发环境
+  application:
+    name: microservice-product-config			# ******服务名*******
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.10.11:33306/springcloud_db01?serverTimezone=GMT%2B8 #数据库连接地址，*****注意库名 db01***************
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 150
 
-尤里卡：
-  客户：
-    registerWithEureka：是
-    fetchRegistry：true
-    serviceUrl：
-      defaultZone：http : //192.168.10.11 : 6001/eureka
-  实例：
-    instanceId：$ {spring.application.name}：$ {server.port}
-    preferred-ip-address：true 
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://192.168.10.11:6001/eureka
+  instance:
+    instanceId: ${spring.application.name}:${server.port}
+    prefer-ip-address: true 
 ---
-服务器：
-  港口：8001
-mybatis：
-  config-location：classpath：mybatis / mybatis.cfg.xml
-  类型别名包：com.mengxuegu.springcloud.entities
-  映射器位置：classpath：mybatis / mapper / ** / *。xml
-春天：
-  配置文件：产品＃生产环境
-  应用范围：
-    名称：microservice-product-config			 ＃ ******服务名*******
-  资料来源：
-    类型：com.alibaba.druid.pool.DruidDataSource
-    驱动程序类名：com.mysql.cj.jdbc.Driver
-    网址：jdbc：mysql：//192.168.10.11：33306 / springcloud_db01？serverTimezone = GMT％2B8 ＃数据库连接地址，*****注意库名db02 ***************
-    用户名：root
-    密码：123456
-    dbcp2：
-      最小闲置时间：5
-      初始尺寸：5
-      最大合计：5
-      最大等待毫秒数：150
+server:
+  port: 8001
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml 
+  type-aliases-package: com.mengxuegu.springcloud.entities
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+spring:
+  profiles: prod # 生产环境
+  application:
+    name: microservice-product-config			# ******服务名*******
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.10.11:33306/springcloud_db01?serverTimezone=GMT%2B8 #数据库连接地址，*****注意库名 db02***************
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 150
 
-尤里卡：
-  客户：
-    registerWithEureka：是
-    fetchRegistry：true
-    serviceUrl：
-      defaultZone：http : //192.168.10.11 : 6001/eureka
-  实例：
-    instanceId：$ {spring.application.name}：$ {server.port}
-    preferred-ip-address：true 
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://192.168.10.11:6001/eureka
+  instance:
+    instanceId: ${spring.application.name}:${server.port}
+    prefer-ip-address: true 
     
-emp：
-  名：张三
+emp: 
+  name: zhangsan
