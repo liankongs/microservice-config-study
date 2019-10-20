@@ -1,42 +1,42 @@
-＃注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
-春天：
-  简介：
-    active：开发人员＃激活开发环境配置
+#注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
+spring:
+  profiles:
+    active: dev # 激活开发环境配置
 ---
-服务器：
-  端口：6001  ＃端口号
-春天：
-  个人资料：开发人员＃开发环境
-  应用范围：
-    名称：microservice-config-eureka
+server:
+  port: 6001 #端口号
+spring:
+  profiles: dev # 开发环境
+  applications:
+    name: microservice-config-eureka
     
-尤里卡：
-  实例：
-    主机名：192.168.10.11
-  客户：
-    registerWithEureka：假 
-    fetchRegistry：假 
-    serviceUrl：
-      defaultZone：http：// $ {eureka.instance.hostname}：6001 / eureka /
-  服务器：
-    enable-self-preservation：false ＃局部自我保护机制*****************
+eureka:
+  instance:
+    hostname: 192.168.10.11 
+  client:
+    registerWithEureka: false 
+    fetchRegistry: false 
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:6001/eureka/
+  server:
+    enable-self-preservation: false # 禁用自我保护机制*****************
 ---
-服务器：
-  端口：6001  ＃端口号
-春天：
-  配置文件：产品＃生产环境
-  应用范围：
-    名称：microservice-config-eureka
+server:
+  port: 6001 #端口号
+spring:
+  profiles: prod # 生产环境
+  applications:
+    name: microservice-config-eureka
 
-尤里卡：
-  实例：
-    主机名：192.168.10.11
-  客户：
-    registerWithEureka：假 
-    fetchRegistry：假 
-    serviceUrl：
-      defaultZone：http：// $ {eureka.instance.hostname}：6001 / eureka /
-  服务器：
-    enable-self-preservation：true ＃开启自我保护机制*****************
+eureka:
+  instance:
+    hostname: 192.168.10.11 
+  client:
+    registerWithEureka: false 
+    fetchRegistry: false 
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:6001/eureka/
+  server:
+    enable-self-preservation: true # 开启自我保护机制*****************
     
-＃保存时注意，选择UTF-8保存
+#保存时注意，选择 UTF-8 保存
